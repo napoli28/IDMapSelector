@@ -1,0 +1,14 @@
+{
+    "name": "com.github.napoli28.IdMapSelector",
+    "version": "0.0.1",
+    "displayName": "ID Map Selector",
+    "description": "This is an example package",
+    "unity": "2019.1",
+    "dependencies": {
+   },
+
+    "author": {
+      "name": "napoli28",
+      "url": "https://github.com/napoli28"
+    }
+}
