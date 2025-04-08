@@ -1,10 +1,9 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace IdMapSelector
 {
-    public class IDManager
+    public class IdMap
     {
         private readonly Dictionary<int, Component> idMap = new();
         private readonly Dictionary<GameObject, int> objMap = new();
@@ -16,7 +15,7 @@ namespace IdMapSelector
         private Queue<int> recycleBin = new();
         private MaterialPropertyBlock mpb;
 
-        public IDManager(string idMapTextureName)
+        public IdMap(string idMapTextureName)
         {
             this.idMapTextureName = idMapTextureName;
             Debug.Log(idMapTextureName);
@@ -62,14 +61,14 @@ namespace IdMapSelector
             return color;
         }
 
-        public Component GetSelected<T>(Vector2 position) where T : Component
+        public Component GetSelected(Vector2 position)
         {
             var color = ReadTexture((int)position.x, (int)position.y);
             Debug.Log(color);
             var id = ColorToId(color);
             if (idMap.ContainsKey(id))
             {
-                return idMap[id] as T;
+                return idMap[id];
             }
             else
             {
